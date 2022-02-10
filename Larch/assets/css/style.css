@@ -387,80 +387,149 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/banner.jpg") top center;
-  background-size: cover;
+  background-color: rgba(63, 73, 83, 0.8);
+  overflow: hidden;
   position: relative;
   margin-bottom: -70px;
 }
-@media (max-width: 992px) {
-  #hero {
-    margin-bottom: -60px;
-  }
-}
-#hero:before {
-  content: "";
-  background: rgba(21, 5, 23, 0.5) linear-gradient(rgba(26, 0, 33, 0.5) 0%, rgba(26, 0, 33, 0.5) 5%, rgba(38, 6, 51, 0.5) 40%, rgba(147, 47, 69, 0.7) 76%, rgba(236, 97, 93, 0.7) 94%, rgba(236, 97, 93, 0.5) 100%) repeat scroll 0% 0%;
+#hero .carousel, #hero .carousel-inner, #hero .carousel-item, #hero .carousel-item::before {
   position: absolute;
-  bottom: 0;
   top: 0;
-  left: 0;
   right: 0;
-}
-#hero .hero-container {
-  position: absolute;
+  left: 0;
   bottom: 0;
-  top: 0;
-  left: 15px;
-  right: 15px;
+}
+#hero .carousel-item {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#hero .carousel-item::before {
+  content: "";
+  background-color: rgba(30, 35, 40, 0.6);
+}
+#hero .carousel-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  top: 70px;
+  left: 50px;
+  right: 50px;
+}
+#hero .container {
   text-align: center;
 }
-#hero h1 {
-  margin: 0;
-  font-size: 50px;
-  font-weight: 600;
-  line-height: 56px;
-  text-transform: uppercase;
+#hero h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 48px;
+  font-weight: 700;
+}
+#hero p {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  margin: 0 auto 30px auto;
   color: #fff;
 }
-#hero label {
-  color: #eee;
-  margin: 15px 0 0 0;
-  font-size: 18px;
+#hero .carousel-inner .carousel-item {
+  transition-property: opacity;
+  background-position: center top;
+}
+#hero .carousel-inner .carousel-item,
+#hero .carousel-inner .active.carousel-item-start,
+#hero .carousel-inner .active.carousel-item-end {
+  opacity: 0;
+}
+#hero .carousel-inner .active,
+#hero .carousel-inner .carousel-item-next.carousel-item-start,
+#hero .carousel-inner .carousel-item-prev.carousel-item-end {
+  opacity: 1;
+  transition: 0.5s;
+}
+#hero .carousel-inner .carousel-item-next,
+#hero .carousel-inner .carousel-item-prev,
+#hero .carousel-inner .active.carousel-item-start,
+#hero .carousel-inner .active.carousel-item-end {
+  left: 0;
+  transform: translate3d(0, 0, 0);
+}
+#hero .carousel-control-next-icon, #hero .carousel-control-prev-icon {
+  background: none;
+  font-size: 30px;
+  line-height: 0;
+  width: auto;
+  height: auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  transition: 0.3s;
+  color: rgba(255, 255, 255, 0.5);
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#hero .carousel-control-next-icon:hover, #hero .carousel-control-prev-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+}
+#hero .carousel-indicators li {
+  /* cursor: pointer;
+  background: #fff;
+  overflow: hidden;
+  border: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
+  opacity: 0.6;
+  transition: 0.3s; */
+  visibility: hidden;
+}
+#hero .carousel-indicators li.active {
+  opacity: 1;
+  background: #ff7f5d;
 }
 #hero .btn-get-started {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 10px 40px;
+  padding: 14px 32px;
   border-radius: 4px;
   transition: 0.5s;
-  margin-top: 30px;
-  border: 2px solid #fff;
+  line-height: 1;
   color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  background: #ff7f5d;
 }
 #hero .btn-get-started:hover {
   background: #ff7f5d;
-  border: 2px solid #ff7f5d;
 }
-@media (min-width: 1024px) {
+@media (max-width: 992px) {
   #hero {
-    background-attachment: fixed;
+    height: 100vh;
+  }
+  #hero .carousel-container {
+    top: 8px;
   }
 }
 @media (max-width: 768px) {
-  #hero h1 {
-    font-size: 30px;
-    line-height: 36px;
-  }
   #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 28px;
+  }
+}
+@media (min-width: 1024px) {
+  #hero .carousel-control-prev, #hero .carousel-control-next {
+    width: 5%;
+  }
+}
+@media (max-height: 500px) {
+  #hero {
+    height: 120vh;
   }
 }
 
