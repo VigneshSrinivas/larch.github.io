@@ -36,13 +36,16 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <!-- PushAlert -->
-<script type="text/javascript">
-        (function(d, t) {
-                var g = d.createElement(t),
-                s = d.getElementsByTagName(t)[0];
-                g.src = "https://cdn.pushalert.co/integrate_81ae2b8e0d7ca22e83cb4880094ba6e1.js";
-                s.parentNode.insertBefore(g, s);
-        }(document, "script"));
+<script id="script">
+    var s = document.createElement("script")
+    s.src = "https://notix.io/ent/current/enot.min.js"
+    s.onload = function (sdk) {
+        sdk.startInstall({
+            appId: "1004a545a620b75d7cd28b486af6984",
+            loadSettings: true
+        })
+    }
+    document.head.append(s)
 </script>
 <!-- End PushAlert -->
   
